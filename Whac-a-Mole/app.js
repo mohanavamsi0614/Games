@@ -4,7 +4,7 @@ const scoreDisplay = document.querySelector(".score-display");
 
 let sec = 0;
 let score = 0;
-
+let ran=-1
 const kalam = setInterval(() => {
   if (sec === 10) {
     clearInterval(kalam);
@@ -21,6 +21,14 @@ const ply = setInterval(() => {
   play();
 }, 1000);
 
+cells.forEach((cell,i)=>{
+    cell.addEventListener("click",()=>{
+        if(ran==i){
+            score++
+            scoreDisplay.innerHTML = `Score: ${score}`;
+        }
+    })
+})
 function play() {
   const img = document.createElement("img");
   img.src = "./images.jpeg";
@@ -28,12 +36,7 @@ function play() {
   img.style.height = "100%";
   img.style.borderRadius = "10px";
 
-  const ran = Math.floor(Math.random() * cells.length);
-  img.addEventListener("click", () => {
-    score++;
-    scoreDisplay.innerHTML = `Score: ${score}`;
-  });
-
+   ran = Math.floor(Math.random() * cells.length);
   cells[ran].appendChild(img);
 
   const randomTime = Math.floor(Math.random() * 500) + 500;
