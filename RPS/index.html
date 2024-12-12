@@ -8,6 +8,7 @@
        body{
         height: 100vh;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
        }
@@ -19,13 +20,18 @@
     </style>
 </head>
 <body>
-    <div>
     <h1 align="center">Score: <span id="Score">0</span></h1>
-    <h1>Computer Score: </h1><p class="comp"></p>
-    <h1>Human Score: </h1><p class="human"></p>
+    <div>
+    <h1>Computer Score: </h1><p class="compscore">0</p>
+    <h1>Human Score: </h1><p class="humanscore">0</p>
+    <h1 class="human">Human</h1>
+    <h1 class="comp">Computer</h1>
+    <div class="buttons">
     <button class="rock">Rock</button>
     <button class="paper">Paper</button>
     <button class="sci">Scicorrs</button>
+</div>
+<button class="again">Play Again!</button>
 </div>
 </body>
 <script src="./app.js"></script>
