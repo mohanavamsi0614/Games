@@ -13,4 +13,30 @@ all.map((i,j)=>{
     })
     container.append(card)
 })
-// 
+function flip(j,card){
+    if(ops.length==2) return
+    if(s==4){
+        score.innerHTML="won"
+        alert("Won")
+        window.location.reload()
+    }
+    card.innerHTML=all[j]
+    ops.push({id:j,card})
+    if(ops.length==2){
+        setTimeout(() => {
+            const [first,sec]=ops
+            if(all[first.id]==all[sec.id]){
+                s++
+                if(s>=4){
+                    alert("Won")
+                    window.location.reload()
+                }
+            }
+            else{
+                first.card.innerHTML="?"
+                sec.card.innerHTML="?"
+            }
+            ops=[]
+        }, 500);
+    }
+}
