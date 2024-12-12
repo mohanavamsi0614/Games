@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whac-A-Mole Game</title>
+<style>/* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .game-container {
+      width: 300px;
+      text-align: center;
+    }
+    
+    .header {
+      margin-bottom: 20px;
+    }
+    
+    .time, .score-display {
+      font-size: 24px;
+      margin: 10px;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    
+    .cell {
+      background-color: #ccc;
+      height: 60px;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cell img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    </style>  
+</head>
+<body>
+  <div class="game-container">
+    <div class="header">
+      <div class="time">0</div>
+      <div class="score-display">Score: 0</div>
+    </div>
+
+    <div class="grid">
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
