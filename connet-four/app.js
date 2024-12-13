@@ -10,34 +10,42 @@ const winningArrays = [
 ];
 
 const grid = document.querySelector(".grid");
-let player = 1;
 const stu = document.querySelector(".player");
-stu.innerHTML = "player 1";
+let player = 1;
+let holes = [];
+let gameInterval;
+
+stu.innerHTML = "Player 1";
 
 for (let i = 0; i < 28; i++) {
     const hole = document.createElement("div");
     hole.classList.add("hole");
-    hole.addEventListener("click", () => { play(hole) });
     grid.appendChild(hole);
+    holes.push(hole);
 }
+
+grid.addEventListener("click", (event) => {
+    if (!event.target.classList.contains("hole")) return; 
+    const hole = event.target;
+    if (!hole.classList.contains("taken")) {
+        play(hole);
+        check();
+    }
+});
 
 function play(hole) {
-    if (player == 1 && !hole.classList.contains("taken")) {
+    if (player === 1) {
         hole.style.background = "red";
-        hole.classList.add("first");
-        hole.classList.add("taken");
+        hole.classList.add("first", "taken");
         player = 2;
-        stu.innerHTML = "player 2";
-    } else if (!hole.classList.contains("taken")) {
+        stu.innerHTML = "Player 2";
+    } else {
         hole.style.background = "blue";
-        hole.classList.add("sec");
-        hole.classList.add("taken");
+        hole.classList.add("sec", "taken");
         player = 1;
-        stu.innerHTML = "player 1";
+        stu.innerHTML = "Player 1";
     }
 }
-
-const holes = document.querySelectorAll(".hole");
 
 function check() {
     for (let i = 0; i < winningArrays.length; i++) {
@@ -48,23 +56,34 @@ function check() {
             holes[c].classList.contains("first") &&
             holes[d].classList.contains("first")
         ) {
-            clearInterval(che)
+            clearInterval(gameInterval);
             alert("Player 1 wins!");
-
-            window.location.reload();
+            resetGame();
+            return;
         } else if (
             holes[a].classList.contains("sec") &&
             holes[b].classList.contains("sec") &&
             holes[c].classList.contains("sec") &&
             holes[d].classList.contains("sec")
         ) {
-            clearInterval(che)
-
+            clearInterval(gameInterval);
             alert("Player 2 wins!");
-            window.location.reload();
+            resetGame();
+            return;
         }
     }
 }
-const che=setInterval(() => {
-    check()
-}, 500);
+
+function resetGame() {
+    holes.forEach(hole => {
+        hole.classList.remove("taken", "first", "sec");
+        hole.style.backgroundColor = "white";
+    });
+    player = 1;
+    stu.innerHTML = "Player 1";
+    gameInterval = setInterval(check, 500);
+}
+
+gameInterval = setInterval(check, 500);
+
+document.querySelector(".reset").addEventListener("click", resetGame);
