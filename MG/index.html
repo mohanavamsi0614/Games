@@ -33,12 +33,55 @@
       cursor: pointer;
       border-radius: 8px;
       transform: scale(1);
-      transition: transform 0.2s;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+      background-color: #66bb6a;
+    }
+
+    .matched {
+      background-color: #ffeb3b;
+      color: #333;
+      cursor: default;
+    }
+
+    .score {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .restart {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .restart:hover {
+      background-color: #1e88e5;
     }
   </style>
 </head>
 <body>
-  <div class="game-container" id="game"></div>
+  <div class="score">Score: 0</div>
+  <div class="game-container"></div>
+  <button class="restart" onclick="restartGame()">Restart Game</button>
+  <script src="./app.js">
+  </script>
 </body>
-<script src="./app.js"></script>
 </html>
