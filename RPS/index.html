@@ -3,36 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-       body{
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-       }
-       div{
-        border: 1px solid black ;
-        border-radius: 10px;
-        padding: 10px;
-       }
-    </style>
+    <title>Rock Paper Scissors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 align="center">Score: <span id="Score">0</span></h1>
-    <div>
-    <h1>Computer Score: </h1><p class="compscore">0</p>
-    <h1>Human Score: </h1><p class="humanscore">0</p>
-    <h1 class="human">Human</h1>
-    <h1 class="comp">Computer</h1>
-    <div class="buttons">
-    <button class="rock">Rock</button>
-    <button class="paper">Paper</button>
-    <button class="sci">Scicorrs</button>
-</div>
-<button class="again">Play Again!</button>
-</div>
+    <div class="boards">
+        <div class="board">
+            <h2>Human</h2>
+            <p class="humanscore">0</p>
+        </div>
+        <div class="board">
+            <h2>Computer</h2>
+            <p class="compscore">0</p>
+        </div>
+    </div>
+    <div class="game-container">
+        <header>
+            <h1>Rock Paper Scissors</h1>
+            <p>Can you beat the computer? Let’s find out!</p>
+        </header>
+        <div class="boards">
+            <div class="board">
+                <img src="" class="humanpic"/>
+                            </div>
+            <div class="board">
+                <img src="" class="computerpic"/>
+            </div>
+        </div>
+        <div class="results">
+            <p class="choices">Make a move!</p>
+            <p id="Score">Let’s play Rock, Paper, Scissors!</p>
+        </div>
+        <div class="buttons">
+            <button class="game-btn rock">Rock</button>
+            <button class="game-btn paper">Paper</button>
+            <button class="game-btn sci">Scissors</button>
+        </div>
+        <button class="again">Play Again!</button>
+    </div>
+
+    <audio id="winSound" src="win.mp3"></audio>
+    <audio id="loseSound" src="lose.mp3"></audio>
+    <audio id="tieSound" src="tie.mp3"></audio>
+
+    <script src="./app.js"></script>
 </body>
-<script src="./app.js"></script>
 </html>
