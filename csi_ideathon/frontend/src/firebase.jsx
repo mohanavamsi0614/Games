@@ -24,7 +24,7 @@ function GoogleSignIn({ setUser }) {
     const user = result.user;
     console.debug('signin token:', token);
     console.log(user);
-    if(user.emailVerified && user.email.endsWith("@klu.ac.in")){
+    if(user.emailVerified){
     axios.post("https://csi-ideathon.onrender.com/auth",{newUser:true,user:{name:user.displayName,email:user.email,pic:user.photoURL}}).then((res)=>{
         sessionStorage.setItem('user', JSON.stringify(res.data.user));
         sessionStorage.setItem('token', res.data.user._id);
