@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* small fallbacks / helpers */
+.line-clamp-3 {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.card-transition {
+	transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
