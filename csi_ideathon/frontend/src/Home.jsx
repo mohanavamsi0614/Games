@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "./Auth_cont";
 import IdeaCard from "./components/IdeaCard";
 import SubmitModal from "./components/SubmitModal";
+import img from './image.png'
 import { motion, AnimatePresence } from "framer-motion";
 
 function Home() {
@@ -107,9 +108,12 @@ function Home() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
+        <div className=" flex gap-2">
+        <img src={img} className=" rounded-full w-10"/>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1e3a8a] tracking-tight">
-            IdeaHub 💡
+             CSI IdeaThon💡
           </h1>
+          </div>
           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <button
               onClick={() => setSubscribeOpen(true)}
@@ -147,17 +151,17 @@ function Home() {
         </div>
 
   {/* Responsive Layout */}
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Left: Ideas */}
           <motion.div
-            className="col-span-1 md:col-span-2 bg-white rounded-3xl shadow-lg p-6"
+            className="col-span-1 md:col-span-2 h-screen bg-white rounded-3xl shadow-lg p-6"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
           >
             <h2 className="text-2xl font-semibold text-[#1e3a8a] mb-4">
               Explore Ideas
             </h2>
-            <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
+<div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 overflow-y-auto max-h-[75vh] pr-2">
               {ideas.length === 0 ? (
                 <p className="text-gray-500 italic">No ideas yet</p>
               ) : (
