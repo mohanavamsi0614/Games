@@ -46,7 +46,7 @@ function Admin(){
         }
         setLoading(true);
         try {
-            const res = await axios.post('http://localhost:5500/news', { title: form.title, desc: form.description, date: form.date, img: imgUrl });
+            const res = await axios.post('https://csi-ideathon.onrender.com/news', { title: form.title, desc: form.description, date: form.date, img: imgUrl });
             if (res.status === 200) {
                 setMessage({ type: 'success', text: 'Event added successfully!' });
                 setForm({ title: '', description: '', date: '' });
