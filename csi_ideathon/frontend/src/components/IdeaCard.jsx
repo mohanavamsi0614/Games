@@ -12,7 +12,7 @@ export default function IdeaCard({ idea, disabled, onVote }) {
           disabled={disabled}
           onClick={() => onVote && onVote(idea._id)}
         >
-          {disabled ? 'Voted' : 'Vote'}
+          {disabled ? "Can't Vote"  : 'Vote'}
         </button>
       </div>
     </article>
